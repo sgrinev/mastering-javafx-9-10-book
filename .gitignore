@@ -1,9 +1,9 @@
 dist/
 build/
 
-nbproject/
-!nbproject/project.properties
-!nbproject/project.xml
+*/nbproject/private/
+*/nbproject/configs/
+*/nbproject/genfiles.properties
 
 *.class
 *.log
