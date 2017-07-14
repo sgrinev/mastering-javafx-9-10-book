@@ -33,7 +33,7 @@ public class HelloFX extends Application {
         traverse(root, 0);
     }
 
-    public void traverse(Node node, int level) {
+    public static void traverse(Node node, int level) {
         for (int i = 0; i < level; i++) {
             System.out.print(" ");
         }
