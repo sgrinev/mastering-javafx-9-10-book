@@ -23,6 +23,8 @@ public class ClockOne extends Application {
         
     Thread timer = new Thread(() -> {
         SimpleDateFormat dt = new SimpleDateFormat("hh:mm:ss");
+        // we use old-school method for the simplicity here
+        // we'll learn how to approach timing JavaFX way in Chapter 5
         while(!enough) {
             try {
                 // running "long" operation not on UI thread
