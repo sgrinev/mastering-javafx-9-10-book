@@ -6,6 +6,7 @@ import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -14,7 +15,7 @@ import javafx.stage.StageStyle;
  *
  * @author sgrinev
  */
-public class ClockOne extends Application {
+public class F13_ClockOne extends Application {
 
     // we are allowed to create UI objects on non-UI thread
     private final Text txtTime = new Text();
@@ -26,17 +27,17 @@ public class ClockOne extends Application {
         // we use old-school method for the simplicity here
         // we'll learn how to approach timing JavaFX way in Chapter 5
         while(!enough) {
-            try {
-                // running "long" operation not on UI thread
-                Thread.sleep(1000);
-            } catch (InterruptedException ex) {
-            }
-
             final String time = dt.format(new Date());
             Platform.runLater(()-> {
                 // updating live UI object requires JavaFX App Thread
                 txtTime.setText(time);
             });
+
+            try {
+                // running "long" operation not on UI thread
+                Thread.sleep(1000);
+            } catch (InterruptedException ex) {
+            }
         }
     });
 
@@ -44,6 +45,7 @@ public class ClockOne extends Application {
     public void start(Stage stage) {
         BorderPane root = new BorderPane();
         root.setCenter(txtTime);
+        txtTime.setFont(Font.font("Verdana", 20)); 
         
         Scene scene = new Scene(root, 200, 150);
         

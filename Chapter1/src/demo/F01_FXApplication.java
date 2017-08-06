@@ -9,7 +9,7 @@ import javafx.stage.Stage;
  *
  * @author sgrinev
  */
-public class FXApplication extends Application {
+public class F01_FXApplication extends Application {
     
  
     @Override

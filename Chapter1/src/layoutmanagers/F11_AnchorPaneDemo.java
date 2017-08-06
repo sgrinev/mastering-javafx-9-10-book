@@ -12,7 +12,7 @@ import javafx.stage.Stage;
  *
  * @author sgrinev
  */
-public class AnchorPaneDemo extends Application {
+public class F11_AnchorPaneDemo extends Application {
     
     @Override
     public void start(Stage primaryStage) {

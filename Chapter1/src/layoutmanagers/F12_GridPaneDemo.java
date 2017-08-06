@@ -13,7 +13,7 @@ import javafx.stage.Stage;
  *
  * @author sgrinev
  */
-public class GridPaneDemo extends Application {
+public class F12_GridPaneDemo extends Application {
     
     @Override
     public void start(Stage primaryStage) {

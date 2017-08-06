@@ -12,7 +12,7 @@ import javafx.stage.Stage;
  *
  * @author sgrinev
  */
-public class TilePaneDemo extends Application {
+public class F08_TilePaneDemo extends Application {
     
     @Override
     public void start(Stage primaryStage) {

@@ -11,7 +11,7 @@ import javafx.stage.Stage;
  *
  * @author sgrinev
  */
-public class FlowPaneDemo extends Application {
+public class F09_FlowPaneDemo extends Application {
     
     @Override
     public void start(Stage primaryStage) {

@@ -14,7 +14,7 @@ import javafx.stage.Stage;
  *
  * @author sgrinev
  */
-public class HelloFX extends Application {
+public class F03_HelloFX extends Application {
 
     @Override
     public void start(Stage stage) {

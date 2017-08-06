@@ -1,8 +1,9 @@
 package demo;
 
 import javafx.application.Application;
-import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
@@ -13,12 +14,14 @@ import javafx.stage.StageStyle;
  *
  * @author sgrinev
  */
-public class StageStylesDemo extends Application {
+public class F02_StageStylesDemo extends Application {
     
     @Override
     public void start(Stage primaryStage) {
         
-        Scene scene = new Scene(new Group(), 300, 250);
+        Pane root = new Pane();
+        root.setStyle("-fx-background-color: #eeeeee;");
+        Scene scene = new Scene(root, 300, 250);
         
         primaryStage.setTitle("Stage Styles demo");
         primaryStage.setX(0);

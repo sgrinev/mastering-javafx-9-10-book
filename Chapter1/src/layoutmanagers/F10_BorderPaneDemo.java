@@ -17,7 +17,7 @@ import javafx.stage.StageStyle;
  *
  * @author sgrinev
  */
-public class BorderPaneDemo extends Application {
+public class F10_BorderPaneDemo extends Application {
     
     @Override
     public void start(Stage primaryStage) {
