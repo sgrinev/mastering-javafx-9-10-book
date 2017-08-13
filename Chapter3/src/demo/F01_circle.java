@@ -23,20 +23,24 @@ public class F01_circle extends Application {
     public void start(Stage primaryStage) {
         Pane root = new Pane();
         
-        Slider slider = new Slider(10, 100, 40);
-        slider.relocate(80, 30);
-        
         Circle circle = new Circle(150, 150, 40, Color.ANTIQUEWHITE);
         circle.setStroke(Color.BLACK);
+
+        Slider sliderRadius = new Slider(0, 100, 40);
+        sliderRadius.relocate(80, 20);
+        sliderRadius.setShowTickLabels(true);
+        sliderRadius.setMajorTickUnit(20);
         
-        slider.valueProperty().addListener(new ChangeListener<Number>() {
-            @Override
-            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
-                circle.setRadius(newValue.doubleValue());
-            }
-        });
+        circle.radiusProperty().bind(sliderRadius.valueProperty());
         
-        root.getChildren().addAll(slider, circle);
+        Slider sliderStrokeWidth = new Slider(0, 10, 2);
+        sliderStrokeWidth.setShowTickLabels(true);
+        sliderStrokeWidth.setMajorTickUnit(2);
+        sliderStrokeWidth.relocate(80, 50);
+        
+        circle.strokeWidthProperty().bind(sliderStrokeWidth.valueProperty());
+        
+        root.getChildren().addAll(sliderRadius, circle, sliderStrokeWidth);
         
         Scene scene = new Scene(root, 300, 250);
         
