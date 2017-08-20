@@ -17,7 +17,7 @@ import javafx.stage.Stage;
  *
  * @author sgrinev
  */
-public class F01_circle extends Application {
+public class F00_Circle extends Application {
     
     @Override
     public void start(Stage primaryStage) {

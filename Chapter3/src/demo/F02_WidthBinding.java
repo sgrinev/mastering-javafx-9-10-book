@@ -20,12 +20,9 @@ public class F02_WidthBinding extends Application {
         Label label = new Label();
 
         label.textProperty().bind(stage.widthProperty().asString());
-//        label.textProperty().
-//                bind(stage.heightProperty().asString());
-//        
+
         stage.setScene(new Scene(new VBox(10, label), 200, 150));
         stage.show();
-        System.out.println(label.textProperty().isBound());
     }
 
     public static void main(String[] args) {
