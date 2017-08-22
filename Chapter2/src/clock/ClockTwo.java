@@ -104,7 +104,6 @@ public class ClockTwo extends Application {
         
         timer.start();
         stage.show();        
-        System.out.println(minuteHand.getBoundsInLocal().getWidth());
     }
     
     @Override
