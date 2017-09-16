@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<HBox alignment="CENTER" spacing="5.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="chapter4.first.FirstController">
+   <children>
+      <Label text="Label" />
+      <TextField fx:id="text" />
+      <Button fx:id="button" text="Button" />
+   </children>
+</HBox>
