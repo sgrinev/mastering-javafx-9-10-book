@@ -13,14 +13,12 @@ import javafx.stage.Stage;
  *
  * @author sgrinev
  */
-public class DoFXML extends Application {
+public class DemoFXML extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-//        HBox root = FXMLLoader.<HBox>load(getClass().getResource("FirstDocument.fxml"));
-        HBox root = (HBox) FXMLLoader.load(getClass().getResource("FirstDocument.fxml"));
+        HBox root = FXMLLoader.<HBox>load(getClass().getResource("FirstDocument.fxml"));
         System.out.println(getClass().getResource("FirstDocument.fxml"));
-        //jar:file:/C:/work/mastering-javafx-9-book/Chapter4/dist/run588027943/Chapter4.jar!/chapter4/first/FirstDocument.fxml
         Scene scene = new Scene(root, 300, 80);
         
         stage.setScene(scene);

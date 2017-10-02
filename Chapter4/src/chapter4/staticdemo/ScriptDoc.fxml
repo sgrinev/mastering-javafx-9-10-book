@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?language javascript?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<HBox alignment="CENTER" spacing="5.0" xmlns:fx="http://javafx.com/fxml/1">
+    <fx:script>
+        function handleButtonAction(event) {
+           textField.setText("clicked");
+        }
+    </fx:script>    
+   <children>
+      <Label text="Label" />
+      <TextField fx:id="textField" />
+      <Button fx:id="button" text="Button" onAction="handleButtonAction(event);"/>
+   </children>
+</HBox>
