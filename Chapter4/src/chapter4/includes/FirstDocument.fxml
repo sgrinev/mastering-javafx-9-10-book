@@ -1,0 +1,9 @@
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<HBox xmlns:fx="http://javafx.com/fxml" fx:controller="chapter4.includes.FirstController">
+    <children>
+       <fx:include fx:id="myLabel" source="MyLabel.fxml"/>
+       <TextField fx:id="textField" />
+       <Button text="Button" onAction="#btnAction"/>
+    </children>
+</HBox>

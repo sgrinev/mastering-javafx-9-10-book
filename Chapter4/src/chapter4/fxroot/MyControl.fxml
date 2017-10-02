@@ -1,0 +1,9 @@
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<fx:root type="HBox" xmlns:fx="http://javafx.com/fxml">
+   <children>
+      <Label fx:id="label" />
+      <TextField fx:id="textField" />
+   </children>
+</fx:root>

@@ -1,11 +1,11 @@
 /*
  * (C) Packt Publishing Ltd, 2017-2018
  */
-package chapter4.first;
+package chapter4.includes;
 
-import chapter4.includes.NestedController;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -18,13 +18,18 @@ import javafx.scene.control.TextField;
 public class FirstController implements Initializable {
     
     @FXML
-    private Button button;
-
+    private NestedController myLabelController;
+    
     @FXML
-    private TextField text;
+    void btnAction(ActionEvent event) {
+        myLabelController.setButtonText(textField.getText());
+    }   
+    
+    @FXML
+    private TextField textField;
+    
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
     }    
-    
 }

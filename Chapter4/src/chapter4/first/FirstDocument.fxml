@@ -8,6 +8,7 @@
    <children>
       <Label text="Label" />
       <TextField fx:id="text" />
-      <Button fx:id="button" text="Button" />
+      <Button fx:id="button" 
+              text="Button" />
    </children>
 </HBox>
