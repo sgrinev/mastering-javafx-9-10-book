@@ -1,0 +1,6 @@
+/*
+(C) Packt Publishing Ltd, 2017-2018
+*/
+.root { -fx-padding: 10px; }
+.radio-button { -fx-font-size: 30 }
+.radio-button:selected { -fx-text-fill: red; -fx-font-weight: bold }

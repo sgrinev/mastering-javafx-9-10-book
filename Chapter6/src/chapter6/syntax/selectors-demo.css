@@ -1,0 +1,10 @@
+/*
+(C) Packt Publishing Ltd, 2017-2018
+*/
+.root { -fx-padding: 10px; }
+/* Only direct children of #vb */
+#vb > .radio-button { -fx-font-size: 20 }
+/* All children of #vb */
+#vb .radio-button { -fx-underline: true }
+/* All radio buttons */
+.radio-button:selected { -fx-font-weight: bold }
