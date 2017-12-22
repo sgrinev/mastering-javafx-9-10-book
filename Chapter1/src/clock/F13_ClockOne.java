@@ -59,7 +59,7 @@ public class F13_ClockOne extends Application {
     @Override
     public void stop() {
         // we need to stop our working thread after closing a window 
-        // or our program will run forever
+        // or our program will not exit
         enough = true;
     }
 

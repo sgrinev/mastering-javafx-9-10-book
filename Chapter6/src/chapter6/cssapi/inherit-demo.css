@@ -1,0 +1,9 @@
+/*
+(C) Packt Publishing Ltd, 2017-2018
+*/
+.root { 
+        -fx-padding: 10px; 
+        -fx-background-color: white;
+}
+.radio-button { -fx-font-size: 30 }
+.radio-button:selected > * { -fx-background-color: inherit; }
