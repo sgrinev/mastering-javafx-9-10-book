@@ -1,7 +1,7 @@
 /*
  * (C) Packt Publishing Ltd, 2017-2018
  */
-package chapter8.effects;
+package chapter8.basiceffects;
 
 import javafx.application.Application;
 import javafx.scene.Scene;

@@ -4,13 +4,12 @@
 package chapter8.colors;
 
 import javafx.application.Application;
-import javafx.beans.property.DoubleProperty;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
-import javafx.scene.effect.ColorAdjust;
+import javafx.scene.effect.SepiaTone;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -20,25 +19,21 @@ import javafx.stage.Stage;
  *
  * @author sgrinev
  */
-public class ColorAdjustDemo extends Application {
-    
+public class SepiaToneDemo extends Application {
+
     @Override
     public void start(Stage primaryStage) {
-        ImageView iv = new ImageView("https://github.com/sgrinev/mastering-javafx-9-book/blob/master/Chapter8/src/chapter8/colors/sample.jpg?raw=true");
-        iv.setFitHeight(240);
-        iv.setFitWidth(240);
-        ColorAdjust ca = new ColorAdjust();
-        iv.setEffect(ca);
+        ImageView imageView = new ImageView("https://github.com/sgrinev/mastering-javafx-9-book/blob/master/Chapter8/src/chapter8/colors/sample.jpg?raw=true");
+        imageView.setFitHeight(240);
+        imageView.setFitWidth(240);
+        SepiaTone st = new SepiaTone();
+        imageView.setEffect(st);
 
         VBox root = new VBox(10);
-        for (DoubleProperty prop : new DoubleProperty[] {
-            ca.hueProperty(), ca.contrastProperty(), ca.brightnessProperty(), ca.saturationProperty()
-        }) {
-            Slider slider = new Slider(-1, 1, 0.);
-            prop.bind(slider.valueProperty());
-            root.getChildren().add(new HBox(5, slider, new Label(prop.getName())));
-        }
-        root.getChildren().add(iv);
+        Slider slider = new Slider(0, 1, 0.5);
+        st.levelProperty().bind(slider.valueProperty());
+        root.getChildren().add(new HBox(5, slider, new Label("level")));
+        root.getChildren().add(imageView);
         root.setAlignment(Pos.CENTER);
         root.setPadding(new Insets(10));
 
@@ -53,5 +48,5 @@ public class ColorAdjustDemo extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-    
+
 }
