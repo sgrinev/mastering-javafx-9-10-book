@@ -9,7 +9,6 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
-import javafx.scene.effect.ColorAdjust;
 import javafx.scene.effect.ImageInput;
 import javafx.scene.effect.Light;
 import javafx.scene.effect.Lighting;
@@ -17,12 +16,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Circle;
-import javafx.scene.shape.Rectangle;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 /**
@@ -33,20 +26,22 @@ public class BumpInputDemo extends Application {
 
     @Override
     public void start(Stage primaryStage) {
+        // initialize light effect
         Light.Distant light = new Light.Distant();
         light.setAzimuth(100);
         light.setElevation(45);
 
+        // image for bump input
         ImageInput ii = new ImageInput(new Image("https://github.com/sgrinev/mastering-javafx-9-book/blob/master/resources/packt_logo.png?raw=true"), 0, 70);
         Lighting lighting = new Lighting();
         lighting.setLight(light);
-//        lighting.setSurfaceScale(5);
         lighting.setBumpInput(ii);
 
-
+        // node which we apply effect to
         ImageView iv = new ImageView(new Image("https://github.com/sgrinev/mastering-javafx-9-book/blob/master/resources/sample.jpg?raw=true", 250, 250, true, true));
         iv.setEffect(lighting);
 
+        // service controls
         Slider azimuth = new Slider(0, 360, light.getAzimuth());
         light.azimuthProperty().bind(azimuth.valueProperty());
         
