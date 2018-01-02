@@ -4,7 +4,7 @@
 package chapter8.combining;
 
 import javafx.application.Application;
-import javafx.scene.Group;
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
@@ -15,20 +15,17 @@ import javafx.scene.effect.ImageInput;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.CycleMethod;
 import javafx.scene.paint.LinearGradient;
 import javafx.scene.paint.Stop;
-import javafx.scene.shape.Circle;
-import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
 /**
  *
  * @author sgrinev
  */
-public class EffectsInput extends Application {
+public class AllBlendModesDemo extends Application {
 
     @Override
     public void start(Stage primaryStage) {
@@ -43,52 +40,29 @@ public class EffectsInput extends Application {
 
         int row = 0;
         for (BlendMode value : BlendMode.values()) {
-
-            
+            // image input demo
             Blend blend = new Blend();
             blend.setMode(value);
-
-            blend.setTopInput(ci);
+            blend.setTopInput(ii);
             ImageView iv = new ImageView(image);
             iv.setEffect(blend);
 
-//            Text text = new Text();
-//            text.setX(15);
-//            text.setY(65);
-//            text.setFill(Color.RED);
-//            text.setText(value.name());
-//            text.setFont(Font.font(null, FontWeight.BOLD, 50));
-//            text.setEffect(blend);
+            // gradient color input demo
+            Blend blend2 = new Blend();
+            blend2.setMode(value);
+            blend2.setTopInput(ci);
+            ImageView iv2 = new ImageView(image);
+            iv2.setEffect(blend2);
 
-            Pane blendEffect = new Pane(iv);
-            blendEffect.setMinSize(200, 200);
-
-            Rectangle r = new Rectangle();
-            r.setX(90);
-            r.setY(50);
-            r.setWidth(50);
-            r.setHeight(50);
-            r.setFill(Color.BLUE);
-
-            Circle c = new Circle();
-            c.setFill(Color.rgb(255, 0, 0, 0.5f));
-            c.setCenterX(90);
-            c.setCenterY(50);
-            c.setRadius(25);
-
-            Group blendGroup = new Group();
-            blendGroup.setBlendMode(value);
-            blendGroup.getChildren().add(r);
-            blendGroup.getChildren().add(c);
-
+            
             root.add(new Label(value.toString()), 0, row);
-            root.add(blendEffect, 1, row);
-            root.add(blendGroup, 2, row);
+            root.add(iv, 1, row);
+            root.add(iv2, 2, row);
             row++;
         }
 
-//        root.setPadding(new Insets(50));
-        primaryStage.setTitle("Inputs");
+        root.setPadding(new Insets(10));
+        primaryStage.setTitle("All Blend Modes");
         primaryStage.setScene(new Scene(new ScrollPane(root), 800, 900));
         primaryStage.show();
     }

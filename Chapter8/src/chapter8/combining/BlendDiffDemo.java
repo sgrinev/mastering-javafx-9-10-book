@@ -9,37 +9,36 @@ import javafx.scene.effect.Blend;
 import javafx.scene.effect.BlendMode;
 import javafx.scene.effect.ImageInput;
 import javafx.scene.image.Image;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
-import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
-import javafx.scene.text.Text;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 /**
  *
  * @author sgrinev
  */
-public class BlendSrcDemo extends Application {
+public class BlendDiffDemo extends Application {
 
     @Override
     public void start(Stage primaryStage) {
         Image image = new Image(
             "https://github.com/sgrinev/mastering-javafx-9-book/blob/master/resources/sample.jpg?raw=true", 
-            300, 300, true, true);
+            200, 200, true, true);
         ImageInput ii = new ImageInput(image, 0, 0);
 
+        Image image2 = new Image(
+            "https://github.com/sgrinev/mastering-javafx-9-book/blob/master/resources/sample2.jpg?raw=true", 
+            200, 200, true, true);
+
         Blend blend = new Blend();
-        blend.setMode(BlendMode.SRC_ATOP);
+        blend.setMode(BlendMode.DIFFERENCE);
         blend.setTopInput(ii);
 
-        Text text = new Text(0, 80, "JavaFX");
-        text.setFont(Font.font("Verdana", FontWeight.BOLD, 70));
-        text.setEffect(blend);
+        ImageView iv = new ImageView(image2);
+        iv.setEffect(blend);
 
         primaryStage.setTitle("Blend Demo");
-        primaryStage.setScene(new Scene(new StackPane(text), 300, 300));
+        primaryStage.setScene(new Scene(new HBox(20, new ImageView(image), iv, new ImageView(image2)), 640, 200));
         primaryStage.show();
     }
 
