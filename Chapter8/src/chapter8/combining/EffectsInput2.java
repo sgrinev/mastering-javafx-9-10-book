@@ -4,14 +4,24 @@
 package chapter8.combining;
 
 import javafx.application.Application;
-import javafx.geometry.Insets;
 import javafx.scene.Group;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.effect.Blend;
 import javafx.scene.effect.BlendMode;
-import javafx.scene.layout.StackPane;
-import javafx.scene.text.Text;
+import javafx.scene.effect.ColorInput;
+import javafx.scene.effect.ImageInput;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.CycleMethod;
+import javafx.scene.paint.LinearGradient;
+import javafx.scene.paint.Stop;
+import javafx.scene.shape.Circle;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
 /**
@@ -22,16 +32,64 @@ public class EffectsInput2 extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        Button b = new Button("btn");
-        Text text = new Text("HELLO");
-        
-        Group g = new Group();
-        g.setEffect(new Blend(BlendMode.ADD));
-        g.getChildren().addAll(b, text);
-        StackPane root = new StackPane(g);
-        root.setPadding(new Insets(50));
+        GridPane root = new GridPane();
+        final Image image = new Image("https://github.com/sgrinev/mastering-javafx-9-book/blob/master/resources/sample.jpg?raw=true", 200, 200, true, true);
+        final Image imageC = new Image("https://github.com/sgrinev/mastering-javafx-9-book/blob/master/resources/bwt2.png?raw=true", 200, 200, true, true);
+        ImageInput ii = new ImageInput(imageC, 0, 0);
+
+        Stop[] stops = new Stop[]{new Stop(0, Color.WHITE), new Stop(1, Color.BLACK)};
+        LinearGradient gradient = new LinearGradient(0, 0, 1, 0, true, CycleMethod.NO_CYCLE, stops);
+        ColorInput ci = new ColorInput(0, 0, 200, 200, gradient);
+
+        int row = 0;
+        for (BlendMode value : BlendMode.values()) {
+
+            
+            Blend blend = new Blend();
+            blend.setMode(value);
+
+            blend.setTopInput(ii);
+            ImageView iv = new ImageView(image);
+            iv.setEffect(blend);
+
+//            Text text = new Text();
+//            text.setX(15);
+//            text.setY(65);
+//            text.setFill(Color.RED);
+//            text.setText(value.name());
+//            text.setFont(Font.font(null, FontWeight.BOLD, 50));
+//            text.setEffect(blend);
+
+            Pane blendEffect = new Pane(iv);
+            blendEffect.setMinSize(200, 200);
+
+            Rectangle r = new Rectangle();
+            r.setX(90);
+            r.setY(50);
+            r.setWidth(50);
+            r.setHeight(50);
+            r.setFill(Color.BLUE);
+
+            Circle c = new Circle();
+            c.setFill(Color.rgb(255, 0, 0, 0.5f));
+            c.setCenterX(90);
+            c.setCenterY(50);
+            c.setRadius(25);
+
+            Group blendGroup = new Group();
+            blendGroup.setBlendMode(value);
+            blendGroup.getChildren().add(r);
+            blendGroup.getChildren().add(c);
+
+            root.add(new Label(value.toString()), 0, row);
+            root.add(blendEffect, 1, row);
+            root.add(blendGroup, 2, row);
+            row++;
+        }
+
+//        root.setPadding(new Insets(50));
         primaryStage.setTitle("Inputs");
-        primaryStage.setScene(new Scene(root, 230, 200));
+        primaryStage.setScene(new Scene(new ScrollPane(root), 800, 900));
         primaryStage.show();
     }
 

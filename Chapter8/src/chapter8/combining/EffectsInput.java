@@ -10,17 +10,18 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.effect.Blend;
 import javafx.scene.effect.BlendMode;
+import javafx.scene.effect.ColorInput;
 import javafx.scene.effect.ImageInput;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.CycleMethod;
+import javafx.scene.paint.LinearGradient;
+import javafx.scene.paint.Stop;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 /**
@@ -33,16 +34,21 @@ public class EffectsInput extends Application {
     public void start(Stage primaryStage) {
         GridPane root = new GridPane();
         final Image image = new Image("https://github.com/sgrinev/mastering-javafx-9-book/blob/master/resources/sample.jpg?raw=true", 200, 200, true, true);
-        final Image imageC = new Image("http://www.kidsmathgamesonline.com/images/pictures/patterns/blackwhitecircletarget.jpg", 200, 200, true, true);
+        final Image imageC = new Image("https://github.com/sgrinev/mastering-javafx-9-book/blob/master/resources/bwt2.png?raw=true", 200, 200, true, true);
         ImageInput ii = new ImageInput(imageC, 0, 0);
+
+        Stop[] stops = new Stop[]{new Stop(0, Color.WHITE), new Stop(1, Color.GREEN)};
+        LinearGradient gradient = new LinearGradient(0, 0, 1, 0, true, CycleMethod.NO_CYCLE, stops);
+        ColorInput ci = new ColorInput(0, 0, 200, 200, gradient);
 
         int row = 0;
         for (BlendMode value : BlendMode.values()) {
 
+            
             Blend blend = new Blend();
             blend.setMode(value);
 
-            blend.setTopInput(ii);
+            blend.setTopInput(ci);
             ImageView iv = new ImageView(image);
             iv.setEffect(blend);
 
