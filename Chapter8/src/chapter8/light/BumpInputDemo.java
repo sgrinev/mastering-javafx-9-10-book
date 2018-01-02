@@ -9,8 +9,12 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
+import javafx.scene.effect.ColorAdjust;
+import javafx.scene.effect.ImageInput;
 import javafx.scene.effect.Light;
 import javafx.scene.effect.Lighting;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -25,7 +29,7 @@ import javafx.stage.Stage;
  *
  * @author sgrinev
  */
-public class LightingDemo extends Application {
+public class BumpInputDemo extends Application {
 
     @Override
     public void start(Stage primaryStage) {
@@ -33,28 +37,16 @@ public class LightingDemo extends Application {
         light.setAzimuth(100);
         light.setElevation(45);
 
+        ImageInput ii = new ImageInput(new Image("https://github.com/sgrinev/mastering-javafx-9-book/blob/master/resources/packt_logo.png?raw=true"), 0, 70);
         Lighting lighting = new Lighting();
         lighting.setLight(light);
-        lighting.setSurfaceScale(5);
+//        lighting.setSurfaceScale(5);
+        lighting.setBumpInput(ii);
 
-        Text text = new Text("FX");
-        text.setFill(Color.STEELBLUE);
-        text.setFont(Font.font(null, FontWeight.BOLD, 70));
 
-        text.setEffect(lighting);
+        ImageView iv = new ImageView(new Image("https://github.com/sgrinev/mastering-javafx-9-book/blob/master/resources/sample.jpg?raw=true", 250, 250, true, true));
+        iv.setEffect(lighting);
 
-        Rectangle rect = new Rectangle(70, 70, Color.LIGHTGREEN);
-        rect.setEffect(lighting);
-
-        Circle circle = new Circle(60, Color.TRANSPARENT);
-        circle.setStroke(Color.DARKGRAY);
-        circle.setStrokeWidth(10);
-        circle.setEffect(lighting);
-
-        HBox items = new HBox(10, text, rect, circle);
-        items.setAlignment(Pos.CENTER);
-        items.setPadding(new Insets(20));
-        
         Slider azimuth = new Slider(0, 360, light.getAzimuth());
         light.azimuthProperty().bind(azimuth.valueProperty());
         
@@ -64,13 +56,13 @@ public class LightingDemo extends Application {
         VBox root = new VBox(10, 
                 new HBox(5, new Label("Azimuth"), azimuth),
                 new HBox(5, new Label("Elevation"), elevation),
-                items);
-        root.setPadding(new Insets(20));
+                iv);
+        root.setPadding(new Insets(10));
         root.setAlignment(Pos.CENTER);
         
-        Scene scene = new Scene(root, 350, 250);
+        Scene scene = new Scene(root, 270, 330);
 
-        primaryStage.setTitle("Lighting Demo");
+        primaryStage.setTitle("BumpInput Demo");
         primaryStage.setScene(scene);
         primaryStage.show();
     }

@@ -23,7 +23,7 @@ public class SepiaToneDemo extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        ImageView imageView = new ImageView("https://github.com/sgrinev/mastering-javafx-9-book/blob/master/Chapter8/src/chapter8/colors/sample.jpg?raw=true");
+        ImageView imageView = new ImageView("https://github.com/sgrinev/mastering-javafx-9-book/blob/master/resources/sample.jpg?raw=true");
         imageView.setFitHeight(240);
         imageView.setFitWidth(240);
         SepiaTone st = new SepiaTone();

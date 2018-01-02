@@ -24,7 +24,7 @@ public class ColorAdjustDemo extends Application {
     
     @Override
     public void start(Stage primaryStage) {
-        ImageView iv = new ImageView("https://github.com/sgrinev/mastering-javafx-9-book/blob/master/Chapter8/src/chapter8/colors/sample.jpg?raw=true");
+        ImageView iv = new ImageView("https://github.com/sgrinev/mastering-javafx-9-book/blob/master/resources/sample.jpg?raw=true");
         iv.setFitHeight(240);
         iv.setFitWidth(240);
         ColorAdjust ca = new ColorAdjust();

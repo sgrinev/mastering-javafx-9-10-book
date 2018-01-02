@@ -4,13 +4,18 @@
 package chapter8.combining;
 
 import javafx.application.Application;
-import javafx.geometry.Insets;
 import javafx.scene.Scene;
-import javafx.scene.effect.DropShadow;
-import javafx.scene.effect.Reflection;
-import javafx.scene.layout.HBox;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.effect.Blend;
+import javafx.scene.effect.BlendMode;
+import javafx.scene.effect.ImageInput;
+import javafx.scene.image.Image;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 /**
@@ -18,23 +23,37 @@ import javafx.stage.Stage;
  * @author sgrinev
  */
 public class EffectsInput extends Application {
-    
+
     @Override
     public void start(Stage primaryStage) {
-        Rectangle rect1 = new Rectangle(50, 50, Color.RED);
-        DropShadow effect1 = new DropShadow();
-        effect1.setInput(new Reflection());
-        rect1.setEffect(effect1);
+        VBox root = new VBox(1);
 
-        Rectangle rect2 = new Rectangle(50, 50, Color.RED);
-        Reflection effect2 = new Reflection();
-        effect2.setInput(new DropShadow());
-        rect2.setEffect(effect2);
+        ImageInput ii = new ImageInput(new Image("https://github.com/sgrinev/mastering-javafx-9-book/blob/master/resources/sample.jpg?raw=true", 200, 200, true, true), 0, 0);
 
-        HBox root = new HBox(30, rect1, rect2);
-        root.setPadding(new Insets(50));
+        for (BlendMode value : BlendMode.values()) {
+
+            Blend blend = new Blend();
+            blend.setMode(value);
+
+            blend.setTopInput(ii);
+
+            Text text = new Text();
+            text.setX(15);
+            text.setY(65);
+            text.setFill(Color.RED);
+            text.setText(value.name());
+            text.setFont(Font.font(null, FontWeight.BOLD, 50));
+            text.setEffect(blend);
+
+            
+            Pane g = new Pane(text);
+                    g.setMinSize(200, 200);
+            root.getChildren().add(g);
+        }
+
+//        root.setPadding(new Insets(50));
         primaryStage.setTitle("Inputs");
-        primaryStage.setScene(new Scene(root, 230, 200));
+        primaryStage.setScene(new Scene(new ScrollPane(root), 500, 500));
         primaryStage.show();
     }
 
@@ -44,5 +63,5 @@ public class EffectsInput extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-    
+
 }

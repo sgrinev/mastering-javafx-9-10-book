@@ -20,7 +20,7 @@ public class DisplacementMapDemo extends Application {
     @Override
     public void start(Stage primaryStage) {
         final int SIDE = 240;
-        ImageView iv = new ImageView("https://github.com/sgrinev/mastering-javafx-9-book/blob/master/Chapter8/src/chapter8/colors/sample.jpg?raw=true");
+        ImageView iv = new ImageView("https://github.com/sgrinev/mastering-javafx-9-book/blob/master/resources/sample.jpg?raw=true");
         iv.setFitHeight(SIDE);
         iv.setFitWidth(SIDE);
 
@@ -28,15 +28,15 @@ public class DisplacementMapDemo extends Application {
         floatMap.setWidth(SIDE);
         floatMap.setHeight(SIDE);
 
-        for (int i = 0; i < SIDE; i++) {
-            double v = (Math.sin(i / 20.0 * Math.PI) - 0.5) / 40.0;
-            System.out.println(i + ": " + v);
-            for (int j = 0; j < SIDE; j++) {
-                floatMap.setSamples(i, j, 0.0f, (float)v);
+        for (int x = 0; x < SIDE; x++) {
+            float v = ((float)Math.sin( x / 30. )) / 10f;
+            for (int y = 0; y < SIDE; y++) {
+                floatMap.setSamples(x, y, 0.0f, v);
             }
         }
 
         DisplacementMap displacementMap = new DisplacementMap();
+        displacementMap.setWrap(true);
         displacementMap.setMapData(floatMap);
         iv.setEffect(displacementMap);
 
