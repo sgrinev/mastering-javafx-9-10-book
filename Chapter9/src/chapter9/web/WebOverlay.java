@@ -4,16 +4,18 @@
 package chapter9.web;
 
 import javafx.application.Application;
+import javafx.event.EventTarget;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
-import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 import javafx.stage.Stage;
 import netscape.javascript.JSObject;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
 
 /**
  *
@@ -35,10 +37,14 @@ public class WebOverlay extends Application {
 
         stage.setScene(new Scene(new StackPane(webView, pane), 600, 600));
 
+        Document doc = webView.getEngine().getDocument();
+        Element el = doc.getElementById("exit-app");
+        ((EventTarget) el).addEventListener("click", listener, false);
+
         pane.setOnMouseMoved((event) -> {
             // calling javascript to find what element is under cursor
             JSObject object = (JSObject) webView.getEngine().
-                executeScript("document.elementFromPoint(" + event.getX() + "," + event.getY() + ");");
+                    executeScript("document.elementFromPoint(" + event.getX() + "," + event.getY() + ");");
             if (object != null) {
                 // calculating element's bounds
                 JSObject bounds = (JSObject) object.call("getBoundingClientRect");
@@ -47,7 +53,7 @@ public class WebOverlay extends Application {
                 overlay.setMinWidth(((Number) bounds.getMember("width")).doubleValue());
                 overlay.setMinHeight(((Number) bounds.getMember("height")).doubleValue());
                 // finding what this element is
-                overlayText.setText((String)object.getMember("tagName"));
+                overlayText.setText((String) object.getMember("tagName"));
             }
         });
         webView.getEngine().load("https://stackoverflow.com/questions/tagged/javafx");
