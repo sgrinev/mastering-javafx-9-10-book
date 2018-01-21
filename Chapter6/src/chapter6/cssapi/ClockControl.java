@@ -3,7 +3,6 @@
  */
 package chapter6.cssapi;
 
-import com.sun.javafx.css.converters.PaintConverter;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -15,6 +14,7 @@ import javafx.css.CssMetaData;
 import javafx.css.SimpleStyleableObjectProperty;
 import javafx.css.Styleable;
 import javafx.css.StyleableProperty;
+import javafx.css.converter.PaintConverter;
 import javafx.geometry.Pos;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
