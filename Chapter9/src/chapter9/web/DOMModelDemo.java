@@ -10,6 +10,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 import javafx.stage.Stage;
+import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
 
 /**
@@ -26,7 +27,9 @@ public class DOMModelDemo extends Application {
 
         webEngine.getLoadWorker().stateProperty().addListener(
                 (observable, oldValue, newValue) -> {
+                    // remember, we need to get the page loaded first
                     if (newValue == Worker.State.SUCCEEDED) {
+                        Document document = webEngine.getDocument();
                         NodeList links = webEngine.getDocument().getElementsByTagName("a");
                         for (int i = 0; i < links.getLength(); i++) {
                             System.out.println(links.item(i));

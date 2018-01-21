@@ -37,10 +37,6 @@ public class WebOverlay extends Application {
 
         stage.setScene(new Scene(new StackPane(webView, pane), 600, 600));
 
-        Document doc = webView.getEngine().getDocument();
-        Element el = doc.getElementById("exit-app");
-        ((EventTarget) el).addEventListener("click", listener, false);
-
         pane.setOnMouseMoved((event) -> {
             // calling javascript to find what element is under cursor
             JSObject object = (JSObject) webView.getEngine().
