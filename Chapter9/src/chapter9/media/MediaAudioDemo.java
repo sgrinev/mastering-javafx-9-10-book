@@ -17,46 +17,39 @@ import javafx.stage.Stage;
  * @author sgrinev
  */
 public class MediaAudioDemo extends Application {
-    
+
     @Override
     public void start(Stage primaryStage) {
-        //http://www.sample-videos.com/audio/mp3/crowd-cheering.mp3
-        
-        Pane root = new Pane();
-        Line line = new Line(5, MID, 5, 0);
-        root.getChildren().add(line);
+        final int MID = 50;
 
-        Media media = new Media("file:///c:/tmp/SampleAudio_0.7mb.mp3");
+        Pane root = new Pane();
+        Line[] lines = new Line[128];
+        for (int i = 0; i < 128; i++) {
+            Line line = new Line(5 + i*3, MID, 5 + i*3, MID);
+            lines[i] = line;
+            root.getChildren().add(line);
+        }
+
+        Media media = new Media("file:///c:/tmp/Kalimba.mp3");
         MediaPlayer mp = new MediaPlayer(media);
         mp.setAudioSpectrumListener(new AudioSpectrumListener() {
             @Override
             public void spectrumDataUpdate(double timestamp, double duration, float[] magnitudes, float[] phases) {
-//                System.out.print(timestamp + " " + magnitudes[6]);
-                //line.setEndX(MID+magnitudes[6]);
-//                for (int i = 0; i < 10; i++) {
-//                    System.out.print(magnitudes[i] + " ");
-//                }
-//                System.out.println();
+                System.out.print(timestamp + " " + magnitudes[6]);
+                for (int i = 0; i < Math.max(128, magnitudes.length); i++) {
+                    lines[i].setEndY(MID - magnitudes[i] + mp.getAudioSpectrumThreshold());
+                }
             }
         });
         
-        
-
-        
-        Scene scene = new Scene(root, 300, 250);
-        
-        primaryStage.setTitle("Hello World!");
-        primaryStage.setScene(scene);
+        primaryStage.setTitle("AudioSpectrumDemo");
+        primaryStage.setScene(new Scene(root, 370, 100));
         primaryStage.show();
         mp.play();
     }
-    private static final int MID = 150;
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
         launch(args);
     }
-    
+
 }
