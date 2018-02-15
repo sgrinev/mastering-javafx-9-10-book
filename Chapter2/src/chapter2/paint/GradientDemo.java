@@ -1,4 +1,4 @@
-package demo;
+package chapter2.paint;
 
 import javafx.application.Application;
 import javafx.scene.Scene;

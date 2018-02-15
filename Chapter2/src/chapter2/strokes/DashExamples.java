@@ -1,7 +1,7 @@
 /*
  * (C) Packt Publishing Ltd, 2017-2018
  */
-package demo.strokes;
+package chapter2.strokes;
 
 import javafx.application.Application;
 import javafx.geometry.Insets;

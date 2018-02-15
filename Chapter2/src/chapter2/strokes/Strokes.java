@@ -1,4 +1,4 @@
-package demo.strokes;
+package chapter2.strokes;
 
 import javafx.application.Application;
 import javafx.scene.Scene;

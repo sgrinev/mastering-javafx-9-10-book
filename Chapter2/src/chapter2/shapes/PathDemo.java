@@ -1,7 +1,7 @@
 /*
  * (C) Packt Publishing Ltd, 2017-2018
  */
-package demo;
+package chapter2.shapes;
 
 import javafx.application.Application;
 import static javafx.application.Application.launch;

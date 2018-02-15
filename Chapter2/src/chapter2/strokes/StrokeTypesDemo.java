@@ -1,4 +1,4 @@
-package demo.strokes;
+package chapter2.strokes;
 
 import java.util.function.Supplier;
 import javafx.application.Application;

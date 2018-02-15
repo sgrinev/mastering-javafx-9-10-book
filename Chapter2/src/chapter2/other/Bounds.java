@@ -1,30 +1,36 @@
 /*
  * (C) Packt Publishing Ltd, 2017-2018
  */
-package demo;
+package chapter2.other;
 
 import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.Scene;
-import javafx.scene.image.Image;
+import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
-import javafx.scene.paint.ImagePattern;
-import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 
 /**
  *
  * @author sgrinev
  */
-public class ImagePatternDemo extends Application {
+public class Bounds extends Application {
     
     @Override
     public void start(Stage primaryStage) {
+        Button btn = new Button();
+        btn.setText("Say 'Hello World'");
+        btn.setOnAction(new EventHandler<ActionEvent>() {
+            
+            @Override
+            public void handle(ActionEvent event) {
+                System.out.println("Hello World!");
+            }
+        });
         
         StackPane root = new StackPane();
-        root.getChildren().add(
-            new Circle(100, 
-                new ImagePattern(
-                    new Image("https://upload.wikimedia.org/wikipedia/commons/3/3f/Chimpanzee_congo_painting.jpg"))));
+        root.getChildren().add(btn);
         
         Scene scene = new Scene(root, 300, 250);
         
