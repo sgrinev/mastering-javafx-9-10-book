@@ -1,9 +1,9 @@
 dist/
 build/
 
-*/nbproject/private/
-*/nbproject/configs/
-*/nbproject/genfiles.properties
+**/nbproject/private/
+**/nbproject/configs/
+**/nbproject/genfiles.properties
 
 *.class
 *.log
@@ -12,3 +12,4 @@ build/
 *.swp
 *.DS_Store
 *.lock
+
