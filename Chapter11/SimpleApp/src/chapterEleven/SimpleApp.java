@@ -1,11 +1,9 @@
 /*
  * (C) Packt Publishing Ltd, 2017-2018
  */
-package chapter11;
+package chapterEleven;
 
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;

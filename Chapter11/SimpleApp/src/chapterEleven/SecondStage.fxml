@@ -6,7 +6,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="150" prefWidth="200" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="chapter11.MyController">
+<AnchorPane id="AnchorPane" prefHeight="150" prefWidth="200" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="chapterEleven.MyController">
     <children>
         <Button fx:id="button" layoutX="68.0" layoutY="50.0" onAction="#handleButtonAction" text="Click Me!" />
         <Label fx:id="label" layoutX="34.0" layoutY="82.0" minHeight="16" minWidth="69" prefHeight="17.0" prefWidth="133.0" textAlignment="CENTER" />

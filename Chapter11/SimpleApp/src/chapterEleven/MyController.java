@@ -1,7 +1,7 @@
 /*
  * (C) Packt Publishing Ltd, 2017-2018
  */
-package chapter11;
+package chapterEleven;
 
 import java.net.URL;
 import java.util.ResourceBundle;
