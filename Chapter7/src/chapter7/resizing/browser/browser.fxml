@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.web.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="324.0" prefWidth="380.0" fx:controller="chapter7.resizing.browser.Controller" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" >
+   <children>
+      <WebView fx:id="webView" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="110.0" AnchorPane.topAnchor="51.0" />
+      <TextField fx:id="address" layoutX="14.0" layoutY="14.0" text="http://stackoverflow.com" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="11.0" />
+      <Button onAction="#btnGoAction" prefWidth="90.0" text="Go" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="51.0" />
+      <Button onAction="#btnBackAction" prefWidth="90.0" text="Back" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="85.0" />
+      <Label fx:id="status" text="Status Text" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="11.0" />
+   </children>
+</AnchorPane>
