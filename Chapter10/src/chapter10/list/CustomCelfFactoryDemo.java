@@ -30,7 +30,7 @@ public class CustomCelfFactoryDemo extends Application {
         ListView<String> list = new ListView<>(items);
 
         list.setCellFactory((ListView<String> param) -> {
-            return new ListCell<>() {
+            return new ListCell<String>() {
                 @Override
                 public void updateItem(String item, boolean empty) {
                     super.updateItem(item, empty);

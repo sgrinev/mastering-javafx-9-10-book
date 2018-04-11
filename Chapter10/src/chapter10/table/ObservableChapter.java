@@ -12,12 +12,12 @@ import javafx.beans.property.StringProperty;
  *
  * @author sgrinev
  */
-public class Chapter {
+public class ObservableChapter {
 
     private final StringProperty titleProp = new SimpleStringProperty();
     private final IntegerProperty numberProp = new SimpleIntegerProperty();
 
-    Chapter(int number, String title) {
+    ObservableChapter(int number, String title) {
         titleProp.set(title);
         numberProp.set(number);
     }
@@ -31,9 +31,9 @@ public class Chapter {
         titleProp.set(title);
     }
 
-    public StringProperty titleProperty() {
-        return titleProp;
-    }
+//    public StringProperty titleProperty() {
+//        return titleProp;
+//    }
 
     // Number
     public int getNumber() {
@@ -47,4 +47,10 @@ public class Chapter {
     public IntegerProperty numberProperty() {
         return numberProp;
     }
+
+    @Override
+    public String toString() {
+        return "ObservableChapter{" + getNumber() + ": " + getTitle() + '}';
+    }
+
 }

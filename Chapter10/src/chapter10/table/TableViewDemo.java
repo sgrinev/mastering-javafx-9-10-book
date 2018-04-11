@@ -19,7 +19,25 @@ import javafx.stage.Stage;
  */
 public class TableViewDemo extends Application {
 
-    private TableView<Chapter> table = new TableView<Chapter>();
+    public final static class Chapter {
+
+        private final String title;
+        private final int number;
+
+        public Chapter(int number, String title) {
+            this.title = title;
+            this.number = number;
+        }
+
+        public String getTitle() {
+            return title;
+        }
+
+        public int getNumber() {
+            return number;
+        }
+    }
+
     private final ObservableList<Chapter> listChapters
             = FXCollections.observableArrayList(
                     new Chapter(1, "Stages, Scenes and Layout"),
@@ -34,7 +52,7 @@ public class TableViewDemo extends Application {
                     new Chapter(10, "Advanced Controls and Charts "),
                     new Chapter(11, "Packaging with Java9 Jigsaw"),
                     new Chapter(12, "3D at a glance"),
-                    new Chapter(13, "What next?")
+                    new Chapter(13, "What's next?")
             );
 
     public static void main(String args[]) {
@@ -43,10 +61,6 @@ public class TableViewDemo extends Application {
 
     public void start(Stage stage) {
         stage.setTitle("Mastering JavaFX");
-        FlowPane root = new FlowPane();
-
-        table.setEditable(true);
-
         TableColumn<Chapter, String> columnTitle = new TableColumn<>("Title");
         columnTitle.setCellValueFactory(
                 new PropertyValueFactory<>("title"));
@@ -55,11 +69,15 @@ public class TableViewDemo extends Application {
         columnNumber.setCellValueFactory(
                 new PropertyValueFactory<>("number"));
 
+        TableView<Chapter> table = new TableView<>();
         table.setItems(listChapters);
         table.getColumns().addAll(columnNumber, columnTitle);
 
-        root.getChildren().addAll(table);
-        stage.setScene(new Scene(root, 300, 400));
+        table.setOnMouseClicked((e)-> {
+            listChapters.add(new Chapter(14, "Future chapter"));
+        });
+        
+        stage.setScene(new Scene(table, 330, 400));
         stage.show();
     }
 

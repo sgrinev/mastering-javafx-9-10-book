@@ -30,8 +30,8 @@ public class PieChartDemo extends Application {
 
         PieChart chart = new PieChart(data);
         chart.setTitle("Success");
-        chart.setLabelsVisible(false);
-        //chart.setLegendVisible(false);
+//        chart.setLabelsVisible(false);
+//        chart.setLegendVisible(false);
         chart.setLegendSide(Side.LEFT);
 
         stage.setScene(new Scene(chart, 530, 400));
