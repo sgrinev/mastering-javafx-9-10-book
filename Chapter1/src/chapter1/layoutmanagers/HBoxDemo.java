@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package layoutmanagers;
+package chapter1.layoutmanagers;
 
 import javafx.application.Application;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
@@ -17,19 +17,17 @@ import javafx.stage.Stage;
  *
  * @author sgrinev
  */
-public class StackPaneDemo extends Application {
+public class HBoxDemo extends Application {
     
     @Override
     public void start(Stage primaryStage) {
-  Pane root = new StackPane();
- Rectangle red;
- root.getChildren().addAll(
-    new Rectangle(50, 50, Color.GREEN), // is behind blue and invisible
-    new Rectangle(75, 75, Color.BLUE),
-    red = new Rectangle(90, 90, Color.RED));
- red.toBack();
-        
-        Scene scene = new Scene(root, 300, 250);
+HBox hbox = new HBox(5);
+hbox.setAlignment(Pos.CENTER);
+hbox.getChildren().addAll(
+new Rectangle(50, 50, Color.GREEN),
+new Rectangle(75, 75, Color.BLUE),
+new Rectangle(90, 90, Color.RED));        
+        Scene scene = new Scene(hbox, 300, 250);
         
         primaryStage.setTitle("Hello World!");
         primaryStage.setScene(scene);

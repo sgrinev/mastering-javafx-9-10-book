@@ -1,4 +1,4 @@
-package layoutmanagers;
+package chapter1.layoutmanagers;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -13,7 +13,7 @@ import javafx.stage.Stage;
  *
  * @author sgrinev
  */
-public class F12_GridPaneDemo extends Application {
+public class GridPaneDemo extends Application {
     
     @Override
     public void start(Stage primaryStage) {

@@ -1,4 +1,4 @@
-package layoutmanagers;
+package chapter1.layoutmanagers;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -12,7 +12,7 @@ import javafx.stage.Stage;
  *
  * @author sgrinev
  */
-public class F11_AnchorPaneDemo extends Application {
+public class AnchorPaneDemo extends Application {
     
     @Override
     public void start(Stage primaryStage) {

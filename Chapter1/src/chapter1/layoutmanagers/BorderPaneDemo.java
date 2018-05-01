@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package layoutmanagers;
+package chapter1.layoutmanagers;
 
 import javafx.application.Application;
 import javafx.geometry.Pos;
@@ -17,7 +17,7 @@ import javafx.stage.StageStyle;
  *
  * @author sgrinev
  */
-public class F10_BorderPaneDemo extends Application {
+public class BorderPaneDemo extends Application {
     
     @Override
     public void start(Stage primaryStage) {

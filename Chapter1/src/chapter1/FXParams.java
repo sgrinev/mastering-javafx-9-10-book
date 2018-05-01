@@ -1,4 +1,4 @@
-package demo;
+package chapter1;
 
 import javafx.application.Application;
 import javafx.scene.Scene;

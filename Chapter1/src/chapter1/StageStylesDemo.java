@@ -1,4 +1,4 @@
-package demo;
+package chapter1;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -14,7 +14,7 @@ import javafx.stage.StageStyle;
  *
  * @author sgrinev
  */
-public class F02_StageStylesDemo extends Application {
+public class StageStylesDemo extends Application {
     
     @Override
     public void start(Stage primaryStage) {

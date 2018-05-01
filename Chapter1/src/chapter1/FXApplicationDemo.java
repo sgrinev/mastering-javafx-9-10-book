@@ -1,4 +1,4 @@
-package demo;
+package chapter1;
 
 import javafx.application.Application;
 import javafx.scene.Group;
@@ -9,7 +9,7 @@ import javafx.stage.Stage;
  *
  * @author sgrinev
  */
-public class F01_FXApplication extends Application {
+public class FXApplicationDemo extends Application {
     
  
     @Override

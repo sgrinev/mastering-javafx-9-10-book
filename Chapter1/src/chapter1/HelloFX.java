@@ -1,4 +1,4 @@
-package demo;
+package chapter1;
 
 import javafx.application.Application;
 import javafx.scene.Node;
@@ -14,7 +14,7 @@ import javafx.stage.Stage;
  *
  * @author sgrinev
  */
-public class F03_HelloFX extends Application {
+public class HelloFX extends Application {
 
     @Override
     public void start(Stage stage) {

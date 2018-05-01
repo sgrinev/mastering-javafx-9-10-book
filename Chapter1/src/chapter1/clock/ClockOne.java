@@ -1,4 +1,4 @@
-package clock;
+package chapter1;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -15,7 +15,7 @@ import javafx.stage.StageStyle;
  *
  * @author sgrinev
  */
-public class F13_ClockOne extends Application {
+public class ClockOne extends Application {
 
     // we are allowed to create UI objects on non-UI thread
     private final Text txtTime = new Text();
