@@ -44,13 +44,6 @@ public class LineJoins extends Application {
             path.setStrokeLineJoin(value);
             root.getChildren().add(new VBox(10, new Text(value.name()), path));
         }
-        
-//        for (double d : new double[]{2.8, 2.9, 3.0, 3.1, 3.2}) {
-//            Path path = newPath();
-//            path.setStrokeLineJoin(StrokeLineJoin.MITER);
-//            path.setStrokeMiterLimit(d);
-//            root.getChildren().add(new VBox(10, new Text("" + d), path));
-//        }
 
         primaryStage.setTitle("Dashes");
         primaryStage.setScene(new Scene(root, 400, 250));

@@ -27,21 +27,20 @@ public class TextDemo extends Application {
     @Override
     public void start(Stage primaryStage) {
         Text txt = new Text("Hello\nJavaFX!");
-        txt.setFont(Font.font ("Courier New", FontWeight.BOLD, FontPosture.ITALIC, 30));
-        
+        txt.setFont(Font.font("Courier New", FontWeight.BOLD, FontPosture.ITALIC, 30));
+
         Stop[] stops = new Stop[]{new Stop(0, Color.BLACK), new Stop(1, Color.DARKGRAY), new Stop(0.5, Color.ANTIQUEWHITE)};
         LinearGradient gradient = new LinearGradient(50, 50, 250, 50, false, CycleMethod.NO_CYCLE, stops);
         txt.setFill(gradient);
-        
-        
-Text txt1 = new Text("Text1");
-txt1.setFont(Font.font ("Courier New", 15));
-Text txt2 = new Text("Text2");
-txt2.setFont(Font.font ("Times New Roman", 20));
-Text txt3 = new Text("Text3");
-txt3.setFont(Font.font ("Arial", 30));
-TextFlow textFlow = new TextFlow(txt1, txt2, txt3);
-                
+
+        Text txt1 = new Text("Text1");
+        txt1.setFont(Font.font("Courier New", 15));
+        Text txt2 = new Text("Text2");
+        txt2.setFont(Font.font("Times New Roman", 20));
+        Text txt3 = new Text("Text3");
+        txt3.setFont(Font.font("Arial", 30));
+        TextFlow textFlow = new TextFlow(txt1, txt2, txt3);
+
         VBox root = new VBox(30, txt, textFlow);
         root.setPadding(new Insets(20));
         Scene scene = new Scene(root, 300, 250);
