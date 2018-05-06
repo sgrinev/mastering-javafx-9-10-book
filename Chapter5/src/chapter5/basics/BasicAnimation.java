@@ -22,18 +22,22 @@ import javafx.util.Duration;
 public class BasicAnimation extends Application {
     
     @Override
-    public void start(Stage primaryStage) {
-        
-        Node node = new Circle(50, 150, 50, Color.RED);
-        
-        KeyValue keyValue = new KeyValue(node.translateXProperty(), 200);
-        KeyFrame keyFrame = new KeyFrame(Duration.seconds(15), keyValue);
-        Timeline timeline = new Timeline(keyFrame);
-        
-        Scene scene = new Scene(new Pane(node), 300, 250);
-        primaryStage.setScene(scene);
-        primaryStage.show();
-        
+    public void start(Stage stage) {
+        Circle circle = new Circle(50, 150, 50, Color.RED);
+
+        // change node.translateXProperty from it's current value to 200
+        KeyValue keyValue = new KeyValue(circle.translateXProperty(), 200);
+        // over the course of 5 seconds
+        KeyFrame keyFrame = new KeyFrame(Duration.seconds(5), keyValue);
+        Timeline timeline = new Timeline(
+                // starting keyFrame can be skipped, JavaFX prepares it for automatically
+                // new KeyFrame(Duration.ZERO, new KeyValue(node.translateXProperty(), node.getTranslateX())), 
+                keyFrame);
+
+        Scene scene = new Scene(new Pane(circle), 300, 250);
+        stage.setScene(scene);
+        stage.show();
+
         timeline.play();
     }
 

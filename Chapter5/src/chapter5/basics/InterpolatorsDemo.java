@@ -3,6 +3,7 @@
  */
 package chapter5.basics;
 
+import java.util.stream.Stream;
 import javafx.animation.Animation;
 import javafx.animation.Interpolator;
 import javafx.animation.KeyFrame;
@@ -29,21 +30,22 @@ public class InterpolatorsDemo extends Application {
         timeline.setCycleCount(Timeline.INDEFINITE);
         timeline.setAutoReverse(true);
 
-        for (Interpolator interpolator : new Interpolator[] {
+        Stream.of(
             Interpolator.LINEAR,
             Interpolator.EASE_IN,
             Interpolator.EASE_BOTH,
-            Interpolator.EASE_OUT,
-        }) {
+            Interpolator.EASE_OUT
+        ).forEach((interpolator)-> {
             Circle node = new Circle(30, Color.RED);
             root.getChildren().add(node);
             KeyFrame keyFrame = new KeyFrame(Duration.seconds(2), 
                     new KeyValue(node.translateXProperty(), 240, interpolator));
             timeline.getKeyFrames().add(keyFrame);
-        }
+        });
         
         Scene scene = new Scene(root, 300, 300);
         primaryStage.setScene(scene);
+        primaryStage.setTitle("click to start");
         primaryStage.show();
         System.out.println(timeline.getStatus());
         root.setOnMouseClicked((event) -> {

@@ -25,15 +25,15 @@ public class CombinedAnimation extends Application {
     @Override
     public void start(Stage primaryStage) {
         
-        Circle node = new Circle(50, 50, 20, Color.RED);
+        Circle circle = new Circle(50, 50, 20, Color.RED);
         
         Pane root = new Pane();
-        root.getChildren().add(node);
+        root.getChildren().add(circle);
 
         KeyFrame keyFrame = new KeyFrame(Duration.seconds(5), "point 1", 
-                new KeyValue(node.centerXProperty(), 250));
-        KeyFrame keyFrame2 = new KeyFrame(Duration.seconds(10), 
-                new KeyValue(node.centerYProperty(), 200));
+                new KeyValue(circle.centerXProperty(), 250));
+        KeyFrame keyFrame2 = new KeyFrame(Duration.seconds(10), "point 2",
+                new KeyValue(circle.centerYProperty(), 200));
         Timeline timeline = new Timeline(keyFrame, keyFrame2);
         Scene scene = new Scene(root, 400, 400);
         
@@ -43,8 +43,8 @@ public class CombinedAnimation extends Application {
         
         // trajectory drawer
         timeline.currentTimeProperty().addListener((Observable duration) -> {
-            Circle circle = new Circle(node.getCenterX(), node.getCenterY(), 4, Color.LIGHTGRAY);
-            root.getChildren().add(circle);
+            Circle gray = new Circle(circle.getCenterX(), circle.getCenterY(), 4, Color.LIGHTGRAY);
+            root.getChildren().add(gray);
         });
 
 

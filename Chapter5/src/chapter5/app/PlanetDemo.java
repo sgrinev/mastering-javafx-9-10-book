@@ -7,7 +7,6 @@ import javafx.animation.Interpolator;
 import javafx.animation.KeyFrame;
 import javafx.animation.ParallelTransition;
 import javafx.animation.PathTransition;
-import javafx.animation.PauseTransition;
 import javafx.animation.ScaleTransition;
 import javafx.animation.Timeline;
 import javafx.application.Application;
@@ -23,7 +22,7 @@ import javafx.util.Duration;
  *
  * @author sgrinev
  */
-public class PlanetsDemo extends Application {
+public class PlanetDemo extends Application {
 
     @Override
     public void start(Stage primaryStage) {
