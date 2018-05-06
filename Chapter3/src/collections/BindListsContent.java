@@ -1,7 +1,7 @@
 /*
  * (C) Packt Publishing Ltd, 2017-2018
  */
-package demo;
+package collections;
 
 import java.util.Random;
 import javafx.application.Application;
@@ -23,7 +23,7 @@ import javafx.stage.Stage;
  *
  * @author sgrinev
  */
-public class F10_BindListsContent extends Application {
+public class BindListsContent extends Application {
     
     @Override
     public void start(Stage stage) {

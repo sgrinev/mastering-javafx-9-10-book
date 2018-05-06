@@ -1,7 +1,7 @@
 /*
  * (C) Packt Publishing Ltd, 2017-2018
  */
-package demo;
+package other;
 
 import java.util.Locale;
 import javafx.application.Application;
@@ -20,7 +20,7 @@ import javafx.util.converter.NumberStringConverter;
  *
  * @author sgrinev
  */
-public class F07_Convertors extends Application {
+public class BidiConverters extends Application {
   
     @Override
     public void start(Stage stage) {

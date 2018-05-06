@@ -1,13 +1,11 @@
 /*
  * (C) Packt Publishing Ltd, 2017-2018
  */
-package demo;
+package other;
 
 import javafx.application.Application;
 import javafx.beans.binding.Bindings;
 import javafx.beans.binding.ObjectBinding;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Background;
@@ -20,7 +18,7 @@ import javafx.stage.Stage;
  *
  * @author sgrinev
  */
-public class F09_CreateBinding extends Application {
+public class CreateBinding extends Application {
     
     @Override
     public void start(Stage primaryStage) {
@@ -58,7 +56,7 @@ public class F09_CreateBinding extends Application {
         
         
 
-        primaryStage.setTitle("Hello World!");
+        primaryStage.setTitle("Binding helper");
         primaryStage.setScene(scene);
         primaryStage.show();
         

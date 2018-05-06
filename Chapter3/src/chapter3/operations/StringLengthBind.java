@@ -1,7 +1,7 @@
 /*
  * (C) Packt Publishing Ltd, 2017-2018
  */
-package demo;
+package chapter3.operations;
 
 import javafx.application.Application;
 import javafx.beans.binding.Bindings;
@@ -16,7 +16,7 @@ import javafx.stage.Stage;
  *
  * @author sgrinev
  */
-public class F05_StringLengthBind extends Application {
+public class StringLengthBind extends Application {
 
     @Override
     public void start(Stage stage) {

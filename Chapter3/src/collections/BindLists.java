@@ -1,7 +1,7 @@
 /*
  * (C) Packt Publishing Ltd, 2017-2018
  */
-package demo;
+package collections;
 
 import javafx.application.Application;
 import javafx.beans.property.SimpleStringProperty;
@@ -16,7 +16,7 @@ import javafx.stage.Stage;
  *
  * @author sgrinev
  */
-public class F10_BindLists extends Application {
+public class BindLists extends Application {
     
     @Override
     public void start(Stage stage) {

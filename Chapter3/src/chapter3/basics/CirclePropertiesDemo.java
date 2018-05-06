@@ -1,7 +1,7 @@
 /*
  * (C) Packt Publishing Ltd, 2017-2018
  */
-package demo;
+package chapter3.basics;
 
 import javafx.application.Application;
 import javafx.beans.value.ChangeListener;
@@ -17,7 +17,7 @@ import javafx.stage.Stage;
  *
  * @author sgrinev
  */
-public class F00_Circle extends Application {
+public class CirclePropertiesDemo extends Application {
     
     @Override
     public void start(Stage primaryStage) {

@@ -1,7 +1,7 @@
 /*
  * (C) Packt Publishing Ltd, 2017-2018
  */
-package demo;
+package collections;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,8 +16,6 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
@@ -25,7 +23,7 @@ import javafx.stage.Stage;
  *
  * @author sgrinev
  */
-public class F11_Extractor extends Application {
+public class Extractor extends Application {
     
     @Override
     public void start(Stage stage) {
@@ -42,7 +40,7 @@ public class F11_Extractor extends Application {
             // a list of observables to be tracked
             return new Observable[] { btn.pressedProperty() }; 
         });
-        
+
         // And add a listener
         IntegerProperty counter = new SimpleIntegerProperty(0);
         observableList.addListener((ListChangeListener.Change<? extends Button> c) -> {
@@ -51,12 +49,13 @@ public class F11_Extractor extends Application {
 
         Label label = new Label();
         label.textProperty().bind(counter.asString("changes count: %1$s"));
-        
+
         HBox root = new HBox(10);
         root.setAlignment(Pos.CENTER);
         root.getChildren().add(label);
         root.getChildren().addAll(buttons);
-        stage.setScene(new Scene(root, 500, 250));
+        stage.setScene(new Scene(root, 500, 100));
+        stage.setTitle("Binding to a List demo");
         stage.show();
     }
 

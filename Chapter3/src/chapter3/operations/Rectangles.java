@@ -1,7 +1,7 @@
 /*
  * (C) Packt Publishing Ltd, 2017-2018
  */
-package demo;
+package chapter3.operations;
 
 import javafx.application.Application;
 import javafx.beans.binding.Bindings;
@@ -16,7 +16,7 @@ import javafx.stage.Stage;
  *
  * @author sgrinev
  */
-public class F06_Rectangles extends Application {
+public class Rectangles extends Application {
 
     @Override
     public void start(Stage stage) {
@@ -24,10 +24,12 @@ public class F06_Rectangles extends Application {
 
         final int count = 7; //number of rectangles
 
+        // version 1
 //        NumberBinding minSide = Bindings
 //                .min(root.heightProperty(), root.widthProperty())
 //                .divide(count);
         
+        // version 2
         NumberBinding minSide = Bindings
             .when(root.heightProperty().lessThan(root.widthProperty()) )
                 .then( root.heightProperty() )
@@ -40,6 +42,7 @@ public class F06_Rectangles extends Application {
 
                 rectangle.xProperty().bind(minSide.multiply(x));
                 rectangle.yProperty().bind(minSide.multiply(y));
+                
                 rectangle.heightProperty().bind(minSide.subtract(2));
                 rectangle.widthProperty().bind(rectangle.heightProperty());
                 root.getChildren().add(rectangle);
@@ -50,11 +53,7 @@ public class F06_Rectangles extends Application {
         stage.show();
     }
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
         launch(args);
     }
-
 }

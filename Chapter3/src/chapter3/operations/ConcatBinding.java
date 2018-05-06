@@ -1,7 +1,7 @@
 /*
  * (C) Packt Publishing Ltd, 2017-2018
  */
-package demo;
+package chapter3.operations;
 
 import javafx.application.Application;
 import javafx.beans.binding.Bindings;
@@ -14,7 +14,7 @@ import javafx.stage.Stage;
  *
  * @author sgrinev
  */
-public class F04_ConcatBinding extends Application {
+public class ConcatBinding extends Application {
 
     @Override
     public void start(Stage stage) {

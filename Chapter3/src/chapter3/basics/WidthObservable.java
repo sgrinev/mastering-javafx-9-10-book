@@ -1,7 +1,7 @@
 /*
  * (C) Packt Publishing Ltd, 2017-2018
  */
-package demo;
+package chapter3.basics;
 
 import javafx.application.Application;
 import javafx.beans.value.ChangeListener;
@@ -9,14 +9,13 @@ import javafx.beans.value.ObservableValue;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 /**
  *
  * @author sgrinev
  */
-public class F01_WidthListener extends Application {
+public class WidthObservable extends Application {
 
     @Override
     public void start(Stage stage) {
