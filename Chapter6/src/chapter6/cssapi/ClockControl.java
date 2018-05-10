@@ -15,6 +15,7 @@ import javafx.css.SimpleStyleableObjectProperty;
 import javafx.css.Styleable;
 import javafx.css.StyleableProperty;
 import javafx.css.converter.PaintConverter;
+//import javafx.css.converter.PaintConverter;
 import javafx.geometry.Pos;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
@@ -59,7 +60,7 @@ public class ClockControl extends BorderPane {
     private static final List<CssMetaData<? extends Styleable, ?>> cssMetaDataList;
     static {
         List<CssMetaData<? extends Styleable, ?>> temp =
-            new ArrayList<CssMetaData<? extends Styleable, ?>>(BorderPane.getClassCssMetaData());
+            new ArrayList<>(BorderPane.getClassCssMetaData());
         temp.add(HH_COLOR_METADATA);
         cssMetaDataList = Collections.unmodifiableList(temp);
     }
