@@ -4,6 +4,7 @@
 package chapter4.staticdemo;
 
 import chapter4.script.*;
+import java.io.IOException;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -17,7 +18,7 @@ import javafx.stage.Stage;
 public class ScriptDemo extends Application {
 
     @Override
-    public void start(Stage stage) throws Exception {
+    public void start(Stage stage) throws IOException  {
         HBox root = (HBox) FXMLLoader.load(getClass().getResource("ScriptDoc.fxml"));
         Scene scene = new Scene(root, 300, 80);
         stage.setScene(scene);

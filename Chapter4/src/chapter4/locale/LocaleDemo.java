@@ -3,6 +3,7 @@
  */
 package chapter4.locale;
 
+import java.io.IOException;
 import java.util.Locale;
 import java.util.ResourceBundle;
 import javafx.application.Application;
@@ -18,7 +19,7 @@ import javafx.stage.Stage;
 public class LocaleDemo extends Application {
 
     @Override
-    public void start(Stage stage) throws Exception {
+    public void start(Stage stage) throws IOException  {
         BorderPane root = FXMLLoader.<BorderPane>load(
                 getClass().getResource("LocaleDemoDoc.fxml"), ResourceBundle.getBundle("chapter4.demo", new Locale("fr", "FR")));
         Scene scene = new Scene(root, 300, 80);

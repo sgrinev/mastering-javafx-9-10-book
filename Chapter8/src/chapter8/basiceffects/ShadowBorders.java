@@ -19,7 +19,7 @@ import javafx.stage.Stage;
 public class ShadowBorders extends Application {
 
     @Override
-    public void start(Stage stage) throws Exception {
+    public void start(Stage stage) {
         VBox root = new VBox(0);
         for (Color color : new Color[] { Color.RED, Color.YELLOW, Color.GREEN}) {
             Circle node = new Circle(50, color);

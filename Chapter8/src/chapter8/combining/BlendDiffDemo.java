@@ -22,12 +22,12 @@ public class BlendDiffDemo extends Application {
     @Override
     public void start(Stage primaryStage) {
         Image image = new Image(
-            "https://github.com/sgrinev/mastering-javafx-9-book/blob/master/resources/sample.jpg?raw=true", 
+            "https://raw.githubusercontent.com/sgrinev/mastering-javafx-9-10-book/master/resources/sample.jpg", 
             200, 200, true, true);
         ImageInput ii = new ImageInput(image, 0, 0);
 
         Image image2 = new Image(
-            "https://github.com/sgrinev/mastering-javafx-9-book/blob/master/resources/sample2.jpg?raw=true", 
+            "https://raw.githubusercontent.com/sgrinev/mastering-javafx-9-10-book/master/resources/sample2.jpg", 
             200, 200, true, true);
 
         Blend blend = new Blend();
