@@ -4,7 +4,6 @@
 package chapter9.web;
 
 import javafx.application.Application;
-import javafx.event.EventTarget;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
@@ -14,8 +13,6 @@ import javafx.scene.text.Text;
 import javafx.scene.web.WebView;
 import javafx.stage.Stage;
 import netscape.javascript.JSObject;
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
 
 /**
  *
