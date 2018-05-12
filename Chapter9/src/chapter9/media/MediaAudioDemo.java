@@ -30,7 +30,7 @@ public class MediaAudioDemo extends Application {
             root.getChildren().add(line);
         }
 
-        Media media = new Media("file:///c:/tmp/Kalimba.mp3");
+        Media media = new Media("https://github.com/sgrinev/mastering-javafx-9-10-book/raw/master/resources/808-beat.mp3");
         MediaPlayer mp = new MediaPlayer(media);
         mp.setAudioSpectrumListener(new AudioSpectrumListener() {
             @Override

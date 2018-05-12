@@ -18,11 +18,10 @@ public class AudioClipDemo extends Application {
     
     @Override
     public void start(Stage primaryStage) {
-        AudioClip clickSound = new AudioClip("http://www.santiago.bz/as3/GAME/MONSEES/sounds/Computer%20Mouse.aif");
+        AudioClip clickSound = new AudioClip("https://github.com/sgrinev/mastering-javafx-9-10-book/raw/master/resources/mouse-click.wav");
         Button btn = new Button("Play");
         btn.setOnAction((e) -> {
             clickSound.play();
-            System.out.println("Hello World!");
         });
         
         StackPane root = new StackPane();
