@@ -4,7 +4,6 @@
 package chapter9.media;
 
 import javafx.application.Application;
-import javafx.application.Platform;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.scene.media.Media;
