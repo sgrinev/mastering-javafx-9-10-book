@@ -4,6 +4,7 @@
 package chart;
 
 import java.util.function.Supplier;
+import java.util.stream.Stream;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.scene.Scene;
@@ -26,6 +27,7 @@ import javafx.stage.Stage;
 public class XYChartsDemo extends Application {
 
     @Override
+    @SuppressWarnings("unchecked")
     public void start(Stage stage) {
         // we need a bit of lambdacraft to work with constructors
         Supplier<CategoryAxis> supplierX = () -> {
@@ -39,16 +41,15 @@ public class XYChartsDemo extends Application {
 
         TilePane root = new TilePane(2, 2);
 
-        for (XYChart chart : new XYChart[]{
-            // API is the same, only class name changes:
-            new AreaChart(supplierX.get(), supplierY.get()),
-            new BarChart(supplierX.get(), supplierY.get()),
-            new LineChart(supplierX.get(), supplierY.get()),
-            new ScatterChart(supplierX.get(), supplierY.get()),
-            new StackedAreaChart(supplierX.get(), supplierY.get()),
-            new StackedBarChart(supplierX.get(), supplierY.get())
-
-        }) {
+        Stream.of(
+                // API is the same, only class name changes:
+                new AreaChart<>(supplierX.get(), supplierY.get()),
+                new BarChart<>(supplierX.get(), supplierY.get()),
+                new LineChart<>(supplierX.get(), supplierY.get()),
+                new ScatterChart<>(supplierX.get(), supplierY.get()),
+                new StackedAreaChart<>(supplierX.get(), supplierY.get()),
+                new StackedBarChart<>(supplierX.get(), supplierY.get())
+        ).forEach((chart) -> {
             chart.setTitle(chart.getClass().getSimpleName());
             chart.setLegendVisible(false);
             chart.setPrefSize(350, 280);
@@ -88,10 +89,10 @@ public class XYChartsDemo extends Application {
             chart.getData().addAll(seriesLondon, seriesMoscow);
             chart.setOnMouseClicked((e) -> {
                 // animated update demo
-                seriesMoscow.getData().add(new XYChart.Data<>("Nonexistembr", Math.random()*15));
+                seriesMoscow.getData().add(new XYChart.Data<>("Nonexistembr", Math.random() * 15));
             });
             root.getChildren().add(chart);
-        }
+        });
         stage.setScene(new Scene(root, 500, 350));
         stage.show();
     }

@@ -62,7 +62,8 @@ public class EditableTableViewDemo extends Application {
         TableView<ObservableChapter> table = new TableView<>();
         table.setEditable(true);
         table.setItems(listChapters);
-        table.getColumns().addAll(columnNumber, columnTitle);
+        table.getColumns().add(columnNumber);
+        table.getColumns().add(columnTitle);
 
         stage.setScene(new Scene(table, 330, 400));
         stage.show();

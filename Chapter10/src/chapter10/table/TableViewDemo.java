@@ -10,7 +10,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.FlowPane;
 import javafx.stage.Stage;
 
 /**
@@ -59,6 +58,7 @@ public class TableViewDemo extends Application {
         launch(args);
     }
 
+    @Override
     public void start(Stage stage) {
         stage.setTitle("Mastering JavaFX");
         TableColumn<Chapter, String> columnTitle = new TableColumn<>("Title");
@@ -71,7 +71,8 @@ public class TableViewDemo extends Application {
 
         TableView<Chapter> table = new TableView<>();
         table.setItems(listChapters);
-        table.getColumns().addAll(columnNumber, columnTitle);
+        table.getColumns().add(columnNumber);
+        table.getColumns().add(columnTitle);
 
         table.setOnMouseClicked((e)-> {
             listChapters.add(new Chapter(14, "Future chapter"));
