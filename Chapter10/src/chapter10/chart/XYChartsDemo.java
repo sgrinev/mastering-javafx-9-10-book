@@ -1,7 +1,7 @@
 /*
  * (C) Packt Publishing Ltd), 2017-2018
  */
-package chart;
+package chapter10.chart;
 
 import java.util.function.Supplier;
 import java.util.stream.Stream;
