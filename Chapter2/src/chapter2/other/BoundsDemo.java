@@ -23,7 +23,6 @@ import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -31,7 +30,6 @@ import javafx.collections.ObservableList;
 import javafx.embed.swing.SwingFXUtils;
 
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 
 import javafx.geometry.Bounds;
 import javafx.geometry.Insets;
@@ -52,7 +50,6 @@ import javafx.scene.control.Slider;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TitledPane;
-import javafx.scene.control.Toggle;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.effect.DropShadow;
@@ -95,7 +92,7 @@ import javax.imageio.ImageIO;
  *
  * <b>@copyright</b> You can use, modify, copy-paste the code for any purpose, in any way you see fit. No restrictions apply.
  * 
- * SG: adapted to JavaFX 8+
+ * Sergey Grinev: adapted to JavaFX 8+
  */
 public class BoundsDemo extends Application {
 
@@ -314,7 +311,7 @@ public class BoundsDemo extends Application {
         parentYAxisLabel.setLayoutY(axisLabelPos);
         parentYAxisLabel.setTextOrigin(VPos.CENTER);
 
-        String textFont = "-fx-font-size:9;";
+        String textFont = "-fx-font-size:13;";
         localXAxisLabel.setStyle(textFont);
         localYAxisLabel.setStyle(textFont);
         parentXAxisLabel.setStyle(textFont);
