@@ -1,3 +1,6 @@
+/*
+ * (C) Packt Publishing Ltd, 2017-2018
+ */
 package chapter1.layoutmanagers;
 
 import javafx.application.Application;
@@ -13,18 +16,18 @@ import javafx.stage.Stage;
  * @author sgrinev
  */
 public class AnchorPaneDemo extends Application {
-    
+
     @Override
     public void start(Stage primaryStage) {
-        
+
         Rectangle rect = new Rectangle(50, 50, Color.BLUE);
-        
+
         Pane root = new AnchorPane(rect);
         AnchorPane.setRightAnchor(rect, 20.);
         AnchorPane.setBottomAnchor(rect, 20.);
-        
+
         Scene scene = new Scene(root, 150, 100);
-        
+
         primaryStage.setTitle("AnchorPane");
         primaryStage.setScene(scene);
         primaryStage.show();
@@ -36,5 +39,5 @@ public class AnchorPaneDemo extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-    
+
 }

@@ -1,3 +1,6 @@
+/*
+ * (C) Packt Publishing Ltd, 2017-2018
+ */
 package chapter1;
 
 import javafx.application.Application;
@@ -16,24 +19,24 @@ import javafx.stage.Stage;
  * @author sgrinev
  */
 public class StageFullScreen extends Application {
-    
+
     @Override
     public void start(Stage primaryStage) {
         Button btn = new Button();
         btn.setText("Say 'Hello World'");
         btn.setOnAction(new EventHandler<ActionEvent>() {
-            
+
             @Override
             public void handle(ActionEvent event) {
                 System.out.println("Hello World!");
             }
         });
-        
+
         StackPane root = new StackPane();
         root.getChildren().add(btn);
-        
+
         Scene scene = new Scene(root, 300, 250);
-        
+
         primaryStage.setTitle("Hello World!");
         primaryStage.setScene(scene);
         primaryStage.setFullScreenExitHint("Exit code is Ctrl+B");
@@ -41,15 +44,9 @@ public class StageFullScreen extends Application {
         primaryStage.setFullScreen(true);
         primaryStage.show();
         KeyCodeCombination kc = new KeyCodeCombination(KeyCode.B, KeyCombination.CONTROL_DOWN);
-//        System.out.println(kc.getName());
-////        primaryStage.setFullScreenExitKeyCombination(kc);
     }
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
         launch(args);
     }
-    
 }

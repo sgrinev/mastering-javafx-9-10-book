@@ -1,7 +1,5 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * (C) Packt Publishing Ltd, 2017-2018
  */
 package chapter1.layoutmanagers;
 
@@ -11,31 +9,30 @@ import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
 /**
  *
  * @author sgrinev
  */
 public class BorderPaneDemo extends Application {
-    
+
     @Override
     public void start(Stage primaryStage) {
-BorderPane root = new BorderPane();
-root.setRight(new Text("Right "));
-root.setCenter(new Text("Center"));
-root.setBottom(new Text(" Bottom"));
-root.setLeft(new Text(" Left"));
+        BorderPane root = new BorderPane();
+        root.setRight(new Text("Right "));
+        root.setCenter(new Text("Center"));
+        root.setBottom(new Text(" Bottom"));
+        root.setLeft(new Text(" Left"));
 
-Text top = new Text("Top");
-root.setTop(top);
-BorderPane.setAlignment(top, Pos.CENTER);
-root.setStyle("-fx-padding: 5px");
+        Text top = new Text("Top");
+        root.setTop(top);
+        BorderPane.setAlignment(top, Pos.CENTER);
+        root.setStyle("-fx-padding: 5px");
 
-Scene scene = new Scene(root, 300, 250);        
-primaryStage.setTitle("BorderPane");
-primaryStage.setScene(scene);
-primaryStage.show();
+        Scene scene = new Scene(root, 300, 250);
+        primaryStage.setTitle("BorderPane");
+        primaryStage.setScene(scene);
+        primaryStage.show();
     }
 
     /**
@@ -44,5 +41,5 @@ primaryStage.show();
     public static void main(String[] args) {
         launch(args);
     }
-    
+
 }

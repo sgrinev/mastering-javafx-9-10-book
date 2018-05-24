@@ -1,3 +1,6 @@
+/*
+ * (C) Packt Publishing Ltd, 2017-2018
+ */
 package chapter1;
 
 import javafx.application.Application;
@@ -40,10 +43,10 @@ public class HelloFX extends Application {
         System.out.println(node.getClass());
         if (node instanceof Parent) {
             Parent parent = (Parent) node;
-            parent.getChildrenUnmodifiable().forEach(n->traverse(n, level +1));
+            parent.getChildrenUnmodifiable().forEach(n -> traverse(n, level + 1));
         }
     }
-    
+
     public static void main(String[] args) {
         launch(args);
     }

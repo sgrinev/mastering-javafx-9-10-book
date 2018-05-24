@@ -1,7 +1,5 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * (C) Packt Publishing Ltd, 2017-2018
  */
 package chapter1.layoutmanagers;
 
@@ -18,17 +16,17 @@ import javafx.stage.Stage;
  * @author sgrinev
  */
 public class HBoxDemo extends Application {
-    
+
     @Override
     public void start(Stage primaryStage) {
-HBox hbox = new HBox(5);
-hbox.setAlignment(Pos.CENTER);
-hbox.getChildren().addAll(
-new Rectangle(50, 50, Color.GREEN),
-new Rectangle(75, 75, Color.BLUE),
-new Rectangle(90, 90, Color.RED));        
+        HBox hbox = new HBox(5);
+        hbox.setAlignment(Pos.CENTER);
+        hbox.getChildren().addAll(
+                new Rectangle(50, 50, Color.GREEN),
+                new Rectangle(75, 75, Color.BLUE),
+                new Rectangle(90, 90, Color.RED));
         Scene scene = new Scene(hbox, 300, 250);
-        
+
         primaryStage.setTitle("Hello World!");
         primaryStage.setScene(scene);
         primaryStage.show();
@@ -40,5 +38,5 @@ new Rectangle(90, 90, Color.RED));
     public static void main(String[] args) {
         launch(args);
     }
-    
+
 }

@@ -1,4 +1,7 @@
-package chapter1;
+/*
+ * (C) Packt Publishing Ltd, 2017-2018
+ */
+package chapter1.clock;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -19,16 +22,16 @@ public class ClockOne extends Application {
 
     // we are allowed to create UI objects on non-UI thread
     private final Text txtTime = new Text();
-        
+
     private volatile boolean enough = false;
-        
+
     Thread timer = new Thread(() -> {
         SimpleDateFormat dt = new SimpleDateFormat("hh:mm:ss");
         // we use old-school method for the simplicity here
         // we'll learn how to approach timing JavaFX way in Chapter 5
-        while(!enough) {
+        while (!enough) {
             final String time = dt.format(new Date());
-            Platform.runLater(()-> {
+            Platform.runLater(() -> {
                 // updating live UI object requires JavaFX App Thread
                 txtTime.setText(time);
             });
@@ -45,17 +48,17 @@ public class ClockOne extends Application {
     public void start(Stage stage) {
         BorderPane root = new BorderPane();
         root.setCenter(txtTime);
-        txtTime.setFont(Font.font("Verdana", 20)); 
-        
+        txtTime.setFont(Font.font("Verdana", 20));
+
         Scene scene = new Scene(root, 200, 150);
-        
+
         stage.initStyle(StageStyle.UTILITY);
         stage.setScene(scene);
-        
+
         timer.start();
-        stage.show();        
+        stage.show();
     }
-    
+
     @Override
     public void stop() {
         // we need to stop our working thread after closing a window 
@@ -65,5 +68,5 @@ public class ClockOne extends Application {
 
     public static void main(String[] args) {
         launch(args);
-    }    
+    }
 }

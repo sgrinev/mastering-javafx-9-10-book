@@ -1,7 +1,5 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * (C) Packt Publishing Ltd, 2017-2018
  */
 package chapter1.layoutmanagers;
 
@@ -18,19 +16,19 @@ import javafx.stage.Stage;
  * @author sgrinev
  */
 public class StackPaneDemo extends Application {
-    
+
     @Override
     public void start(Stage primaryStage) {
-  Pane root = new StackPane();
- Rectangle red;
- root.getChildren().addAll(
-    new Rectangle(50, 50, Color.GREEN), // is behind blue and invisible
-    new Rectangle(75, 75, Color.BLUE),
-    red = new Rectangle(90, 90, Color.RED));
- red.toBack();
-        
+        Pane root = new StackPane();
+        Rectangle red;
+        root.getChildren().addAll(
+                new Rectangle(50, 50, Color.GREEN), // is behind blue and invisible
+                new Rectangle(75, 75, Color.BLUE),
+                red = new Rectangle(90, 90, Color.RED));
+        red.toBack();
+
         Scene scene = new Scene(root, 300, 250);
-        
+
         primaryStage.setTitle("Hello World!");
         primaryStage.setScene(scene);
         primaryStage.show();
@@ -42,5 +40,5 @@ public class StackPaneDemo extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-    
+
 }
