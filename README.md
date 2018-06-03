@@ -1,3 +1,5 @@
+The book have been published! https://www.packtpub.com/web-development/mastering-javafx-10
+
 # Mastering JavaFX 9/10
 
  * Chapter 1: Stages, Scenes and Layout 
