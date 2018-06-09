@@ -1,6 +1,8 @@
-The book have been published! https://www.packtpub.com/web-development/mastering-javafx-10
+The book have been published! 
+ * Amazon: https://www.amazon.com/Mastering-JavaFX-advanced-visually-applications/dp/1788293827/
+ * Packt: https://www.packtpub.com/web-development/mastering-javafx-10
 
-# Mastering JavaFX 9/10
+# Mastering JavaFX 10
 
  * Chapter 1: Stages, Scenes and Layout 
  * Chapter 2: Building Blocks: Shapes, Text and Controls 
