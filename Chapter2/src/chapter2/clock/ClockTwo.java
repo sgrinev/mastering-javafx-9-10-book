@@ -1,7 +1,7 @@
 package chapter2.clock;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.geometry.Pos;
@@ -26,28 +26,32 @@ import javafx.stage.StageStyle;
 public class ClockTwo extends Application {
 
     private final Text txtTime = new Text();
-
     private Rotate rotateSecondHand = new Rotate(0, 0, 0);
     private Rotate rotateMinuteHand = new Rotate(0, 0, 0);
     private Rotate rotateHourHand = new Rotate(0, 0, 0);
 
-    private Thread timer = new Thread(() -> {
-        SimpleDateFormat dt = new SimpleDateFormat("hh:mm:ss");
-        Date now = new Date();
-        String time = dt.format(now);
+    private volatile boolean enough = false;
 
-        Platform.runLater(() -> {
-            // updating live UI object requires JavaFX App Thread
-            rotateSecondHand.setAngle(now.getSeconds() * 6 - 90);
-            rotateMinuteHand.setAngle(now.getMinutes() * 6 - 90);
-            rotateHourHand.setAngle(now.getHours() * 30 - 90);
-            txtTime.setText(time);
-        });
+    private final Thread timer = new Thread(() -> {
+        // we use old-school method for the simplicity here
+        // we'll learn how to approach timing JavaFX way in Chapter 5
+        while (!enough) {
+            LocalDateTime now = LocalDateTime.now();
+            String time = now.format(DateTimeFormatter.ofPattern("HH:MM:ss"));
 
-        try {
-            // running "long" operation not on UI thread
-            Thread.sleep(1000);
-        } catch (InterruptedException ex) {
+            Platform.runLater(() -> {
+                // updating live UI object requires JavaFX App Thread
+                rotateSecondHand.setAngle(now.getSecond() * 6 - 90);
+                rotateMinuteHand.setAngle(now.getMinute() * 6 - 90);
+                rotateHourHand.setAngle(now.getHour() * 30 - 90);
+                txtTime.setText(time);
+            });
+
+            try {
+                // running "long" operation not on UI thread
+                Thread.sleep(1000);
+            } catch (InterruptedException ex) {
+            }
         }
     });
 
@@ -96,6 +100,13 @@ public class ClockTwo extends Application {
         stage.show();
     }
 
+    @Override
+    public void stop() {
+        // we need to stop our working thread after closing a window 
+        // or our program will not exit
+        enough = true;
+    }
+    
     public static void main(String[] args) {
         launch(args);
     }

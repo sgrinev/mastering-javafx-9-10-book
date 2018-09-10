@@ -3,8 +3,8 @@
  */
 package chapter10.skins;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import javafx.beans.binding.Bindings;
 import javafx.scene.Node;
 import javafx.scene.control.Skin;
@@ -36,8 +36,8 @@ public class ClockSkinText implements Skin<ClockControl> {
         // connecting text clock with our model value
         txtTime.textProperty().bind(
                 Bindings.createStringBinding(() -> {
-                    Date date = control.timeProp.get();
-                    return date == null ? "" : FORMAT.format(date);
+                    LocalDateTime date = control.timeProp.get();
+                    return date == null ? "" : date.format(FORMAT);
                 }, control.timeProp)
         );
     }
@@ -62,5 +62,5 @@ public class ClockSkinText implements Skin<ClockControl> {
 
     // constants
     private static final Font FONT = Font.font ("Courier New", FontWeight.BOLD, FontPosture.REGULAR, 20);
-    private static final SimpleDateFormat FORMAT = new SimpleDateFormat("hh:mm:ss");
+    private static final DateTimeFormatter FORMAT = DateTimeFormatter.ofPattern("HH:MM:ss");
 }

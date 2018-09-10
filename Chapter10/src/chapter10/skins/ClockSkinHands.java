@@ -5,7 +5,6 @@ package chapter10.skins;
 
 import javafx.scene.Node;
 import javafx.scene.control.Skin;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
@@ -63,9 +62,9 @@ public class ClockSkinHands implements Skin<ClockControl> {
                 
         // binding hands to the model value
         control.timeProperty().addListener((e, oldValue, newValue) -> {
-                    rotateSecondHand.setAngle(newValue.getSeconds() * 6 - 90);
-                    rotateMinuteHand.setAngle(newValue.getMinutes() * 6 - 90);
-                    rotateHourHand.setAngle(newValue.getHours() * 30 - 90);
+                    rotateSecondHand.setAngle(newValue.getSecond() * 6 - 90);
+                    rotateMinuteHand.setAngle(newValue.getMinute() * 6 - 90);
+                    rotateHourHand.setAngle(newValue.getHour() * 30 - 90);
                 });
     }
 

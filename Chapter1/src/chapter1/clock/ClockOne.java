@@ -3,8 +3,8 @@
  */
 package chapter1.clock;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.scene.Scene;
@@ -22,15 +22,13 @@ public class ClockOne extends Application {
 
     // we are allowed to create UI objects on non-UI thread
     private final Text txtTime = new Text();
-
     private volatile boolean enough = false;
 
     Thread timer = new Thread(() -> {
-        SimpleDateFormat dt = new SimpleDateFormat("hh:mm:ss");
         // we use old-school method for the simplicity here
         // we'll learn how to approach timing JavaFX way in Chapter 5
         while (!enough) {
-            final String time = dt.format(new Date());
+            final String time = LocalDateTime.now().format(DateTimeFormatter.ofPattern("HH:MM:ss"));
             Platform.runLater(() -> {
                 // updating live UI object requires JavaFX App Thread
                 txtTime.setText(time);

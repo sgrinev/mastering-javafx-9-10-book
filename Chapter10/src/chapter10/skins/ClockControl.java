@@ -3,8 +3,7 @@
  */
 package chapter10.skins;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.time.LocalDateTime;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.beans.property.ObjectProperty;
@@ -34,8 +33,8 @@ public class ClockControl extends Control {
     }
 
     // this is our model data — time
-    final ObjectProperty<Date> timeProp = new SimpleObjectProperty<>(new Date());
-    public ObjectProperty<Date> timeProperty() {
+    final ObjectProperty<LocalDateTime> timeProp = new SimpleObjectProperty<>(LocalDateTime.now());
+    public ObjectProperty<LocalDateTime> timeProperty() {
         return timeProp;
     }
     
@@ -44,7 +43,7 @@ public class ClockControl extends Control {
         // this is out "business logic" — updating time value
         Timeline ttimer = new Timeline(new KeyFrame(Duration.seconds(1),
                 (event) -> {
-                    timeProp.setValue(new Date());
+                    timeProp.setValue(LocalDateTime.now());
                 }));
         ttimer.setCycleCount(Timeline.INDEFINITE);
         ttimer.playFrom(Duration.millis(999));

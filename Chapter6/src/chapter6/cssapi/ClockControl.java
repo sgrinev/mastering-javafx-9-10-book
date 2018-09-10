@@ -3,10 +3,10 @@
  */
 package chapter6.cssapi;
 
-import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Date;
 import java.util.List;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -15,6 +15,7 @@ import javafx.css.SimpleStyleableObjectProperty;
 import javafx.css.Styleable;
 import javafx.css.StyleableProperty;
 import javafx.css.converter.PaintConverter;
+import javafx.event.ActionEvent;
 import javafx.geometry.Pos;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
@@ -39,12 +40,14 @@ public class ClockControl extends BorderPane {
     private static final CssMetaData<ClockControl, Paint> HH_COLOR_METADATA = new CssMetaData("-fx-hh-color", PaintConverter.getInstance()) {
         @Override
         public boolean isSettable(Styleable styleable) {
-            return !((ClockControl) styleable).hourHand.fillProperty().isBound();
+            return !((ClockControl) styleable).
+                    hourHand.fillProperty().isBound();
         }
 
         @Override
         public StyleableProperty getStyleableProperty(Styleable styleable) {
-            return ((ClockControl) styleable).hourHandColorStyleableProperty;
+            return ((ClockControl) styleable).
+                    hourHandColorStyleableProperty;
         }
 
     };
@@ -108,17 +111,15 @@ public class ClockControl extends BorderPane {
         this.setBottom(txtTime);
         BorderPane.setAlignment(txtTime, Pos.CENTER);
         
-        Timeline ttimer = new Timeline(new KeyFrame(Duration.seconds(1),
-                (event) -> {
-                    SimpleDateFormat dt = new SimpleDateFormat("hh:mm:ss");
-                    Date now = new Date();
-                    String time = dt.format(now);
-
-                    rotateSecondHand.setAngle(now.getSeconds() * 6 - 90);
-                    rotateMinuteHand.setAngle(now.getMinutes() * 6 - 90);
-                    rotateHourHand.setAngle(now.getHours() * 30 - 90);
-                    txtTime.setText(time);
-                }));
+        Timeline ttimer = new Timeline(new KeyFrame(Duration.seconds(1), (ActionEvent event) -> {
+            LocalDateTime now = LocalDateTime.now();
+            String time = now.format(DateTimeFormatter.ofPattern("HH:MM:ss"));
+            
+            rotateSecondHand.setAngle(now.getSecond() * 6 - 90);
+            rotateMinuteHand.setAngle(now.getMinute() * 6 - 90);
+            rotateHourHand.setAngle(now.getHour() * 30 - 90);
+            txtTime.setText(time);
+        }));
         ttimer.setCycleCount(Timeline.INDEFINITE);
         ttimer.playFrom(Duration.millis(999));
     }
