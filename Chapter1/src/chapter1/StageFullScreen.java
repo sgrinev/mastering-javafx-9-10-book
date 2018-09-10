@@ -1,5 +1,10 @@
-/*
- * (C) Packt Publishing Ltd, 2017-2018
+/* 
+ * This is free and unencumbered software released into the public domain.
+ *
+ * Anyone is free to copy, modify, publish, use, compile, sell, or
+ * distribute this software, either in source code form or as a compiled
+ * binary, for any purpose, commercial or non-commercial, and by any
+ * means.
  */
 package chapter1;
 
@@ -24,12 +29,8 @@ public class StageFullScreen extends Application {
     public void start(Stage primaryStage) {
         Button btn = new Button();
         btn.setText("Say 'Hello World'");
-        btn.setOnAction(new EventHandler<ActionEvent>() {
-
-            @Override
-            public void handle(ActionEvent event) {
-                System.out.println("Hello World!");
-            }
+        btn.setOnAction((ActionEvent event) -> {
+            System.out.println("Hello World!");
         });
 
         StackPane root = new StackPane();
