@@ -1,4 +1,4 @@
-The book have been published! 
+The book has been published! 
  * Amazon: https://www.amazon.com/Mastering-JavaFX-advanced-visually-applications/dp/1788293827/
  * Packt: https://www.packtpub.com/web-development/mastering-javafx-10
 
